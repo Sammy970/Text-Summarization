@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <nav class="mx-4 px-4 bg-purple-900 text-white">
+        <ul class="flex justify-center">
+            <li class="mx-2 cursor-pointer">Text Rank Summarization</li>
+        </ul>
+    </nav>
+
+    <div class="flex justify-center">
+
+        <form action="{{url_for('textRank')}}" method="post">
+
+                <div class="mb-3 xl:w-96">
+                    <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
+                    >Type your data which you want to summarize</label>
+                    
+                    
+                        <textarea
+                        class="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                        "
+                        id="" name="data" rows="10" placeholder="Type your data which you want to summarize" required="required"></textarea>
+                        <input name="minL" id ="myRange" type="range" min="50" max="500" value="100">
+                        <p>Value: <span id="demo"></span></p>
+                        <button type="submit">Submit</button>
+                    </form>
+
+                </div>
+
+
+                <div class="mb-3 xl:w-96">
+                    <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
+                    >Summarization</label>
+                        <textarea
+                        class="
+                            form-control
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                        "
+                        id=""
+                        name="result"
+                        rows="10"
+                        placeholder="Summarized Result"
+                        >{{TextRankresult}}</textarea>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="dropdown">
+
+            <button class="dropbtn">Dropdown</button>
+
+            <div class="dropdown-content">
+                <a href="/">Bart Model Summarization</a>
+                <a href="/textRank">Text Rank Summarization</a>
+                <a href="#">Link 3</a>
+            </div>
+
+        </div>
+
+        <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+            
+            slider.oninput = function() {
+              output.innerHTML = this.value;
+            }
+        </script>
+
+</body>
+
+<style>
+    /* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+
+    
+</body>
+</html>
