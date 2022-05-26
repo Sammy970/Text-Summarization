@@ -16,84 +16,66 @@
         </ul>
     </nav>
 
-    <div class="flex justify-center">
-
+    <div class="container">
         <form action="{{url_for('textRank')}}" method="post">
 
-                <div class="mb-3 xl:w-96">
-                    <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
-                    >Type your data which you want to summarize</label>
-                    
-                    
-                        <textarea
-                        class="
-                            form-control
-                            block
-                            w-full
-                            px-3
-                            py-1.5
-                            text-base
-                            font-normal
-                            text-gray-700
-                            bg-white bg-clip-padding
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                        "
-                        id="" name="data" rows="10" placeholder="Type your data which you want to summarize" required="required"></textarea>
-                        <input name="minL" id ="myRange" type="range" min="50" max="500" value="100">
-                        <p>Number of Minimum Words: <span id="demo"></span></p>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Submit</button>
-                    </form>
+            <div class="grid grid-cols-3 md:grid-cols-3">
+                
+                <div class="firstBox">
+
+                    <div class="mb-3 xl:w-96">
+                        <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700">Type your data which you want to summarize</label>
+                            <textarea
+                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="" name="data" rows="10" placeholder="Type your data which you want to summarize" required="required"></textarea>
+                            
+
+                    </div>
 
                 </div>
 
+                <div class="secondBox">
+                    <br><br><br>
+                    <input name="minL" id ="myRange" type="range" min="50" max="500" value="100">
+                    <p>Number of Minimum Words: <span id="demo"></span></p>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Submit</button>
 
-                <div class="mb-3 xl:w-96">
-                    <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
-                    >Summarization</label>
-                        <textarea
-                        class="
-                            form-control
-                            block
-                            w-full
-                            px-3
-                            py-1.5
-                            text-base
-                            font-normal
-                            text-gray-700
-                            bg-white bg-clip-padding
-                            border border-solid border-gray-300
-                            rounded
-                            transition
-                            ease-in-out
-                            m-0
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                        "
-                        id=""
-                        name="result"
-                        rows="10"
-                        placeholder="Summarized Result"
-                        >{{TextRankresult}}</textarea>
+                    <br><hr><br>
+                        <div class="dropdown">
+
+                            <button class="dropbtn">Click here to check other algorithms</button>
+                
+                            <div class="dropdown-content">
+                                <a href="/">Bart Model Summarization</a>
+                                <a href="/textRank">Text Rank Summarization</a>
+                                <a href="/">Latent Semantic Analysis [In Progress]</a>
+                            </div>
+                
+                        </div>
+
                 </div>
+
+                <div class="thirdBox">
+                    
+                    <div class="mb-3 xl:w-96">
+                        <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700"
+                        >Summarization</label>
+                            <textarea
+                            class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                            "
+                            id=""
+                            name="result"
+                            rows="10"
+                            placeholder="Summarized Result"
+                            >{{TextRankresult}}</textarea>
+                    </div>
+
+                </div>
+            
             </div>
 
         </form>
-
-        <div class="dropdown">
-
-            <button class="dropbtn">Click here to check other algorithms</button>
-
-            <div class="dropdown-content">
-                <a href="/">Bart Model Summarization</a>
-                <a href="/textRank">Text Rank Summarization</a>
-                <a href="/">Latent Semantic Analysis [In Progress]</a>
-            </div>
-
-        </div>
+    </div>
 
         <script>
             var slider = document.getElementById("myRange");
@@ -108,6 +90,22 @@
 </body>
 
 <style>
+
+.firstBox {
+    margin: auto;
+    margin-top: 50px;
+}
+
+.secondBox {
+    margin: auto;
+    margin-top: 50px;
+}
+
+.thirdBox {
+    margin: auto;
+    margin-top: 50px;
+}
+
     /* Dropdown Button */
 .dropbtn {
   background-color: #04AA6D;
