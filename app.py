@@ -9,7 +9,7 @@ app = Flask(__name__)
 def Index():
     return render_template("index.html")
 
-# @app.route("/Summarize",methods={"GET","POST"})
+#  @app.route("/Summarize",methods={"GET","POST"})
 
 @app.route("/Summarize/", methods={"GET","POST"})
 def Summarize():
